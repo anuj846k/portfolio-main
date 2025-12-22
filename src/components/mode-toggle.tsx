@@ -1,37 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
 export function ModeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   function switchTheme() {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
-  }
-
-  function onThemeChange() {
-    if (typeof document !== "undefined" && (document as any).startViewTransition) {
-      (document as any).startViewTransition(switchTheme);
-    } else {
-      switchTheme();
-    }
-  }
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return (
-      <Button variant="ghost" type="button" size="icon" className="px-2">
-        <span className="h-[1.2rem] w-[1.2rem]" />
-      </Button>
-    );
   }
 
   return (
@@ -40,13 +17,11 @@ export function ModeToggle() {
       type="button"
       size="icon"
       className="px-2"
-      onClick={onThemeChange}
+      onClick={switchTheme}
     >
-      {resolvedTheme === "light" ? (
-        <MoonIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
-      ) : (
-        <SunIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:text-neutral-200" />
-      )}
+      <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-neutral-800 dark:text-neutral-200" />
+      <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-neutral-800 dark:text-neutral-200" />
+      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 }
