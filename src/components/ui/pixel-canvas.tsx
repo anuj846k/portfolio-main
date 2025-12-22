@@ -1,5 +1,20 @@
 "use client";
 
+// Declare the custom element for TypeScript JSX
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'pixel-canvas': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+                'data-gap'?: number;
+                'data-speed'?: number;
+                'data-colors'?: string;
+                'data-variant'?: string;
+                'data-no-focus'?: string;
+            }, HTMLElement>;
+        }
+    }
+}
+
 // Сначала определяем класс Pixel
 class Pixel {
     width: number;
