@@ -110,8 +110,8 @@ export const DATA = {
       href: "https://aktu.ac.in/",
       degree: "Bachelor's in Computer Science and Technology",
       logoUrl: "https://aktu.ac.in/images/logo.png",
-      start: "2021",
-      end: "2025",
+      start: "2023",
+      end: "2027",
     },
   ],
   projects: [
