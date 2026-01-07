@@ -27,7 +27,7 @@ export default function Page() {
       </div>
 
       {/* Main Content - Popped out with background */}
-      <main className="relative z-10 flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background/50 backdrop-blur-sm shadow-2xl border border-border/50 max-w-4xl mx-auto px-6 py-12 sm:py-24">
+      <main className="relative z-10 flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background/80 backdrop-blur-sm shadow-2xl border border-border/50 max-w-4xl mx-auto px-6 py-12 sm:py-24">
         <section id="hero">
           <div className="mx-auto w-full space-y-8">
             <div className="gap-2 flex justify-between">
