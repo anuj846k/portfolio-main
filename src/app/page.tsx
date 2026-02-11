@@ -1,3 +1,4 @@
+import Github from "@/components/Github";
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -15,7 +16,7 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   return (
     <div className="relative min-h-[100dvh] w-full selection:bg-primary selection:text-primary-foreground">
-      <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-12 sm:py-24">
+      <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-12 sm:py-24 lg:py-4">
         <section id="hero">
           <div className="mx-auto w-full space-y-6 flex flex-col items-center text-center">
             <BlurFade delay={BLUR_FADE_DELAY}>
@@ -144,9 +145,14 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <section id="github-activity" className="py-4">
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <Github />
+          </BlurFade>
+        </section>
         <section id="hackathons">
           <div className="space-y-12 w-full py-12">
-            <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <BlurFade delay={BLUR_FADE_DELAY * 15}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -166,12 +172,12 @@ export default function Page() {
                 </div>
               </div>
             </BlurFade>
-            <BlurFade delay={BLUR_FADE_DELAY * 14}>
+            <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
                 {DATA.hackathons.map((project, id) => (
                   <BlurFade
                     key={project.title + project.dates}
-                    delay={BLUR_FADE_DELAY * 15 + id * 0.05}
+                    delay={BLUR_FADE_DELAY * 17 + id * 0.05}
                   >
                     <HackathonCard
                       title={project.title}
@@ -189,7 +195,7 @@ export default function Page() {
         </section>
         <section id="contact">
           <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-            <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <BlurFade delay={BLUR_FADE_DELAY * 18}>
               <div className="space-y-3">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                   Contact

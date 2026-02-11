@@ -3,7 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    domains: ["github.com", "raw.githubusercontent.com"],
+    domains: [
+      "github.com",
+      "raw.githubusercontent.com",
+      "github-contributions-api.jogruber.de",
+    ],
   },
 };
 
