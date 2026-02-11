@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "Self-taught Full Stack Developer building scalable web applications.",
   summary:
-    "Hey! I'm Anuj Kumar, a self-taught full stack developer from Noida, India. I'm currently pursuing my Bachelor's in **Computer Science and Technology**. I love building software that solves real-world problems, which is why I actively [participate in hackathons](/#hackathons) where most of my projects are developed. My everyday tech stack includes **Next.js, TypeScript, Prisma ORM, Docker** and more. I'm always open for freelance projects and collaborations!",
+    "Hey! I'm Anuj Kumar, a self-taught full stack developer from Noida, India. I'm currently pursuing my Bachelor's in **Computer Science and Technology**. I love building software that solves real-world problems, which is why I actively [participate in hackathons](/#hackathons) where most of my projects are developed. My everyday tech stack includes **Next.js, TypeScript, Node Js, Prisma ORM, Docker** and more. I'm always open for freelance projects and collaborations!",
   avatarUrl: "/pp.png",
   skills: [
     "React",
@@ -212,7 +212,7 @@ export const DATA = {
         },
       ],
 
-      image: "",
+      image: "/auctions.png",
       video: "",
     },
     {
