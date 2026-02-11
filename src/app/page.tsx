@@ -1,17 +1,47 @@
 import Github from "@/components/Github";
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
-import SpacingWhale from "@/components/shared/spacingwhale";
+import Docker from "@/components/technologies/Docker";
+import Expo from "@/components/technologies/Expo";
+import FastApi from "@/components/technologies/FastApi";
+import Kubernetes from "@/components/technologies/Kubernetes";
+import MongoDBIcon from "@/components/technologies/MongoDB";
+import NextJs from "@/components/technologies/NextJs";
+import NodeJs from "@/components/technologies/NodeJs";
+import PostgreSQLIcon from "@/components/technologies/PostgreSQL";
+import PrismaIcon from "@/components/technologies/Prisma";
+import Python from "@/components/technologies/Python";
+import ReactIcon from "@/components/technologies/ReactIcon";
+import ReactNative from "@/components/technologies/ReactNative";
+import ShadcnIcon from "@/components/technologies/Shadcn";
+import TailwindCssIcon from "@/components/technologies/TailwindCss";
+import TypeScriptIcon from "@/components/technologies/TypeScript";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
+
+const SKILL_ICON_MAP: Record<string, React.ReactNode> = {
+  React: <ReactIcon />,
+  "Next.js": <NextJs />,
+  TypeScript: <TypeScriptIcon />,
+  "Node.js": <NodeJs />,
+  PostgreSQL: <PostgreSQLIcon />,
+  MongoDB: <MongoDBIcon />,
+  Prisma: <PrismaIcon />,
+  "Shadcn UI": <ShadcnIcon />,
+  "Tailwind CSS": <TailwindCssIcon />,
+  FastAPI: <FastApi />,
+  Python: <Python />,
+  Docker: <Docker />,
+  Expo: <Expo />,
+  "React Native": <ReactNative />,
+  Kubernetes: <Kubernetes />,
+};
 
 export default function Page() {
   return (
@@ -91,16 +121,43 @@ export default function Page() {
           </div>
         </section>
         <section id="skills">
-          <div className="flex min-h-0 flex-col gap-y-3">
+          <div className="flex min-h-0 flex-col gap-y-4">
             <BlurFade delay={BLUR_FADE_DELAY * 9}>
-              <h2 className="text-xl font-bold">Skills</h2>
+              <div>
+                <p className="text-xs font-medium uppercase tracking-wide text-primary">
+                  Techonologies & Tools
+                </p>
+              </div>
             </BlurFade>
-            <div className="flex flex-wrap gap-1">
-              {DATA.skills.map((skill, id) => (
-                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                  <Badge key={skill}>{skill}</Badge>
-                </BlurFade>
-              ))}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              {DATA.skills.map((skill, id) => {
+                const icon = SKILL_ICON_MAP[skill];
+                const fallbackInitials = skill
+                  .split(/[\s.]+/)
+                  .map((part) => part[0])
+                  .join("")
+                  .slice(0, 3);
+
+                return (
+                  <BlurFade
+                    key={skill}
+                    delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+                  >
+                    <div className="group flex items-center gap-3 rounded-xl border bg-card/40 px-3 py-2 text-sm shadow-sm transition hover:border-primary/60 hover:bg-card/80">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-primary">
+                        {icon ?? (
+                          <span className="text-xs font-semibold uppercase">
+                            {fallbackInitials}
+                          </span>
+                        )}
+                      </div>
+                      <span className="font-medium text-foreground">
+                        {skill}
+                      </span>
+                    </div>
+                  </BlurFade>
+                );
+              })}
             </div>
           </div>
         </section>
