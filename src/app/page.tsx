@@ -50,7 +50,7 @@ export default function Page() {
         <section id="hero">
           <div className="mx-auto w-full space-y-6 flex flex-col items-center text-center">
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-32 md:size-40 border-2">
+              <Avatar className="size-32 md:size-40 border-2 border-gray-300">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
