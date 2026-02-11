@@ -1,5 +1,4 @@
 import { HackathonCard } from "@/components/hackathon-card";
-import LetterGlitch from "@/components/LetterGlitch";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -15,30 +14,33 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <div className="relative  min-h-[100dvh] w-full selection:bg-primary selection:text-primary-foreground">
-      {/* Full Screen LetterGlitch Background */}
-      <div className="fixed inset-0 z-0">
-        <LetterGlitch
-          glitchSpeed={50}
-          centerVignette={true}
-          outerVignette={false}
-          smooth={true}
-        />
-      </div>
-
-      {/* Main Content - Popped out with background */}
-      <main className="relative z-10 flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background/80 backdrop-blur-sm shadow-2xl border border-border/50 max-w-4xl mx-auto px-6 py-12 sm:py-24">
+    <div className="relative min-h-[100dvh] w-full selection:bg-primary selection:text-primary-foreground">
+      <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-12 sm:py-24">
         <section id="hero">
           <div className="mx-auto w-full space-y-8">
-            <div className="gap-2 flex justify-between">
+            <div className="flex items-center gap-6  flex-row">
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <Avatar className="size-28 border">
+                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+              </BlurFade>
+
+              <div className="hidden lg:block">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  Hi, I&apos;m {DATA.name.split(" ")[0]}
+                </h1>
+              </div>
+            </div>
+            <div className="block lg:hidden">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  Hi, I&apos;m {DATA.name.split(" ")[0]}
+                </h1>
+              </div>
+            {/* <div className="gap-2 flex justify-between">
               <div className="flex-col flex flex-1 space-y-1.5">
                 <BlurFade delay={BLUR_FADE_DELAY}>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Hi, I&apos;m {DATA.name.split(" ")[0]}
-                    <span className="hidden lg:inline-block align-middle ml-4 -mt-10">
-                      <SpacingWhale />
-                    </span>
-                  </h1>
+                 
                 </BlurFade>
                 <BlurFadeText
                   className="max-w-[600px] md:text-xl"
@@ -46,16 +48,7 @@ export default function Page() {
                   text={DATA.description}
                 />
               </div>
-              <BlurFade delay={BLUR_FADE_DELAY}>
-                <Avatar className="size-28 border">
-                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                  <AvatarFallback>{DATA.initials}</AvatarFallback>
-                </Avatar>
-                <span className=" lg:hidden inline-block align-middle ml-1">
-                  <SpacingWhale />
-                </span>
-              </BlurFade>
-            </div>
+            </div> */}
           </div>
         </section>
         <section id="about">
@@ -228,6 +221,8 @@ export default function Page() {
                   Want to chat? Just shoot me a dm{" "}
                   <Link
                     href={DATA.contact.social.X.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"
                   >
                     with a direct question on twitter

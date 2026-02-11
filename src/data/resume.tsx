@@ -8,10 +8,10 @@ export const DATA = {
   location: "Noida, Uttar Pradesh, India",
   locationLink: "https://www.google.com/maps/place/Noida",
   description:
-    "Self-taught Full Stack Developer building scalable web applications. Active in hackathons and open source.",
+    "Self-taught Full Stack Developer building scalable web applications.",
   summary:
     "Hey! I'm Anuj Kumar, a self-taught full stack developer from Noida, India. I'm currently pursuing my Bachelor's in **Computer Science and Technology**. I love building software that solves real-world problems, which is why I actively [participate in hackathons](/#hackathons) where most of my projects are developed. My everyday tech stack includes **Next.js, TypeScript, Prisma ORM, Docker** and more. I'm always open for freelance projects and collaborations!",
-  avatarUrl: "/pp.jpeg",
+  avatarUrl: "/pp.png",
   skills: [
     "React",
     "Next.js",
@@ -28,6 +28,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
+
     { href: "/snippets", icon: CodeIcon, label: "Snippets" },
   ],
   contact: {
@@ -66,7 +67,6 @@ export const DATA = {
   },
 
   work: [
-
     {
       company: "Freelance",
       href: "https://github.com/anuj846k",
@@ -115,7 +115,6 @@ export const DATA = {
     },
   ],
   projects: [
-
     {
       title: "CodesBlue",
       href: "https://www.codesblue.com/",
@@ -123,12 +122,7 @@ export const DATA = {
       active: true,
       description:
         "Modern agency landing page with sleek design, smooth animations, and responsive layout for a professional web presence.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "TailwindCSS",
-        "Framer Motion",
-      ],
+      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
       links: [
         {
           type: "Website",
@@ -153,7 +147,7 @@ export const DATA = {
         "MongoDB",
         "Vercel",
         "Resend",
-        "Razorpay"
+        "Razorpay",
       ],
       links: [
         {
@@ -166,6 +160,51 @@ export const DATA = {
       video: "",
     },
 
+    {
+      title: "Travel agency platform",
+      href: "https://ttt.swifty9.com",
+      dates: "2025",
+      active: true,
+      description:
+        "Role-based trek management platform with User, Admin, and Superadmin dashboards. Built on PostgreSQL (Neon) with Prisma ORM and Twilio integration for OTP verification and notifications.",
+      technologies: [
+        "NodeJs",
+        "TypeScript",
+        "NeonDB",
+        "Twilio",
+        "Resend",
+        "NextJs",
+        "Tanstack",
+        "Tailwind css",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/anuj846k/MealOBox",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/ttt.png",
+      video: "",
+    },
+
+    {
+      title: "Auction Bidding System",
+      href: "https://auction-bidding.vercel.app/",
+      dates: "2025",
+      active: true,
+      description:
+        "Auction bidding system with real-time updates and notifications. Built with Neon DB, NodeJs, Socket IO, Tailwind CSS, Shadcn UI, Jest, and Drizzle ORM.",
+      technologies: [
+        "Neon DB",
+        "NodeJs",
+        "Socket IO",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "Jest",
+        "Drizzle ORM",
+      ],
+    },
     {
       title: "CollisionCloud 🚗",
       href: "https://github.com/anuj846k/Collision-Cloud",
@@ -193,60 +232,10 @@ export const DATA = {
           type: "Demo",
           href: "https://www.youtube.com/watch?v=TlImgfYaTP4",
           icon: <Icons.youtube className="size-3" />,
-        }
-      ],
-      image: "https://raw.githubusercontent.com/anuj846k/Collision-Cloud/main/accident-frontend/public/step1.png",
-      video: "",
-    },
-    {
-      title: "Interview Genie 🧞‍♂️",
-      href: "https://interview-genie-eta.vercel.app/",
-      dates: "2025",
-      active: true,
-      description:
-        "AI-powered interview practice platform providing real-time feedback to boost confidence and help land dream jobs.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "AI/ML",
-        "TailwindCSS",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://interview-genie-eta.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/anuj846k/InterviewGenie",
-          icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/robot.png",
-      video: "",
-    },
-    {
-      title: "MealOBox Vendor App",
-      href: "https://github.com/anuj846k/MealOBox",
-      dates: "2025",
-      active: true,
-      description:
-        "Platform connecting home chefs with customers seeking authentic homemade meals. Vendor app for managing menus, orders, and payments.",
-      technologies: [
-        "React Native",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-      ],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/anuj846k/MealOBox",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/mealobox.png",
+      image:
+        "https://raw.githubusercontent.com/anuj846k/Collision-Cloud/main/accident-frontend/public/step1.png",
       video: "",
     },
     {
@@ -260,7 +249,8 @@ export const DATA = {
         "React Native",
         "TypeScript",
         "Node.js",
-        "PostgreSQL",
+        "MongoDB",
+        "Twilio",
       ],
       links: [
         {
@@ -272,89 +262,75 @@ export const DATA = {
       image: "/notout.png",
       video: "",
     },
-    {
-      title: "HopesAlive",
-      href: "https://hopes-alive.vercel.app/",
-      dates: "2025",
-      active: true,
-      description:
-        "Web platform for reporting animal-related incidents. NGOs and volunteers are promptly notified for quick action.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "TailwindCSS",
-        "Prisma",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://hopes-alive.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/anuj846k/HopesAlive",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/hopesalive.png",
-      video: "",
-    },
-    {
-      title: "90's Developers Blog",
-      href: "https://90-s-blog-codedex-hackathon.vercel.app/",
-      dates: "2024",
-      active: true,
-      description:
-        "Innovative Dev.to reimagination with 1990s look and feel. Combines vintage web design with modern features. 🏆 Hackathon Winner",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "TailwindCSS",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://90-s-blog-codedex-hackathon.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/anuj846k/90-s-Blog-Codedex-Hackathon",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "/retro.png",
-      video: "",
-    },
-    {
-      title: "ML Model Automation",
-      href: "https://github.com/anuj846k/HACKFROST-POLARDEV",
-      dates: "2024",
-      active: true,
-      description:
-        "Automated ML pipeline monitoring data drift, retraining, and redeploying models with Kestra orchestration. 🏆 Hackathon Winner",
-      technologies: [
-        "Python",
-        "Kestra",
-        "Machine Learning",
-        "Docker",
-      ],
-      links: [
-        {
-          type: "Demo",
-          href: "https://youtu.be/VPWFfgOpi6E?si=yv14FKrQW7Wl4Lbs",
-          icon: <Icons.youtube className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/anuj846k/HACKFROST-POLARDEV",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
+    // {
+    //   title: "HopesAlive",
+    //   href: "https://hopes-alive.vercel.app/",
+    //   dates: "2025",
+    //   active: true,
+    //   description:
+    //     "Web platform for reporting animal-related incidents. NGOs and volunteers are promptly notified for quick action.",
+    //   technologies: ["Next.js", "TypeScript", "TailwindCSS", "Prisma"],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://hopes-alive.vercel.app/",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //     {
+    //       type: "Source",
+    //       href: "https://github.com/anuj846k/HopesAlive",
+    //       icon: <Icons.github className="size-3" />,
+    //     },
+    //   ],
+    //   image: "/hopesalive.png",
+    //   video: "",
+    // },
+    // {
+    //   title: "90's Developers Blog",
+    //   href: "https://90-s-blog-codedex-hackathon.vercel.app/",
+    //   dates: "2024",
+    //   active: true,
+    //   description:
+    //     "Innovative Dev.to reimagination with 1990s look and feel. Combines vintage web design with modern features. 🏆 Hackathon Winner",
+    //   technologies: ["Next.js", "TypeScript", "TailwindCSS"],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://90-s-blog-codedex-hackathon.vercel.app/",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //     {
+    //       type: "Source",
+    //       href: "https://github.com/anuj846k/90-s-Blog-Codedex-Hackathon",
+    //       icon: <Icons.github className="size-3" />,
+    //     },
+    //   ],
+    //   image: "/retro.png",
+    //   video: "",
+    // },
+    // {
+    //   title: "ML Model Automation",
+    //   href: "https://github.com/anuj846k/HACKFROST-POLARDEV",
+    //   dates: "2024",
+    //   active: true,
+    //   description:
+    //     "Automated ML pipeline monitoring data drift, retraining, and redeploying models with Kestra orchestration. 🏆 Hackathon Winner",
+    //   technologies: ["Python", "Kestra", "Machine Learning", "Docker"],
+    //   links: [
+    //     {
+    //       type: "Demo",
+    //       href: "https://youtu.be/VPWFfgOpi6E?si=yv14FKrQW7Wl4Lbs",
+    //       icon: <Icons.youtube className="size-3" />,
+    //     },
+    //     {
+    //       type: "Source",
+    //       href: "https://github.com/anuj846k/HACKFROST-POLARDEV",
+    //       icon: <Icons.github className="size-3" />,
+    //     },
+    //   ],
+    //   image: "",
+    //   video: "",
+    // },
   ],
   hackathons: [
     {
@@ -363,7 +339,8 @@ export const DATA = {
       location: "Online",
       description:
         "Built 90's Developers Blog - reimagined Dev.to with vintage 1990s look and feel. Won for creative design and execution.",
-      image: "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/126917254",
+      image:
+        "https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/126917254",
       win: "Winner 🏆",
       links: [
         {
@@ -400,22 +377,23 @@ export const DATA = {
       ],
     },
     {
-      title: "HopesAlive Hackathon",
-      dates: "2024",
+      title: "LMA EDGE Hackathon",
+      dates: "2026",
       location: "Online",
       description:
-        "Built HopesAlive - a platform for reporting animal-related incidents and notifying NGOs and volunteers for quick rescue action.",
-      image: "https://d2dmyh35ffsxbl.cloudfront.net/assets/reimagine2/devpost-logo-mobile-f3aff76bfc0b6ada9bb4ddd773bfc534769ed793f962612804a1e84c305a5f94.svg",
+        "AI that turns legal loan agreements into automated compliance calculations",
+      image:
+        "https://d2dmyh35ffsxbl.cloudfront.net/assets/reimagine2/devpost-logo-mobile-f3aff76bfc0b6ada9bb4ddd773bfc534769ed793f962612804a1e84c305a5f94.svg",
       links: [
         {
           title: "Website",
           icon: <Icons.globe className="h-4 w-4" />,
-          href: "https://hopes-alive.vercel.app/",
+          href: "https://axiom-complier.vercel.app",
         },
         {
           title: "Source",
           icon: <Icons.github className="h-4 w-4" />,
-          href: "https://github.com/anuj846k/HopesAlive",
+          href: "https://github.com/anuj846k/Covenant-Logic-Compiler-",
         },
       ],
     },

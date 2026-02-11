@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 
 import { LineShadowText } from "@/components/magicui/line-shadow-text";
-import { PixelCanvas } from "@/components/ui/pixel-canvas";
 
 const snippetCategories = [
     {
@@ -62,8 +61,6 @@ const Blog = () => {
     return (
         <>
             <main className="relative min-h-screen py-12 md:py-24 px-1 md:px-0">
-                <div className="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-xl -z-10" />
-
                 <div className="max-w-4xl mx-auto">
                     <h1 className="text-center -mt-12 text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
                         Code{" "}
@@ -76,8 +73,7 @@ const Blog = () => {
                         {snippetCategories.map((category) => {
                             return (
                                 <div key={category.id} className="w-[300px] mx-auto">
-                                    <button className="group relative w-full overflow-hidden border border-border rounded-xl aspect-square transition-all duration-300 dark:hover:border-[#0ea5e9] hover:border-orange-400 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] backdrop-blur-md bg-white/5 dark:bg-black/5" style={{ "--active-color": category.color } as React.CSSProperties} onClick={() => router.push(`/snippets/${category.id}`)}>
-                                        <PixelCanvas gap={10} speed={25} colors={["#e0f2fe", "#7dd3fc", category.color]} variant="icon" className="absolute inset-0" />
+                                    <button className="group relative w-full overflow-hidden border border-border rounded-xl aspect-square transition-all duration-300 dark:hover:border-[#0ea5e9] hover:border-orange-400 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] bg-background" style={{ "--active-color": category.color } as React.CSSProperties} onClick={() => router.push(`/snippets/${category.id}`)}>
                                         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center pointer-events-none">
                                             <div className="flex flex-col items-center transform transition-transform duration-300 group-hover:-translate-y-4">
                                                 <category.icon className="w-16 h-16 text-black dark:text-white transition-all duration-300 ease-out dark:group-hover:text-[#0ea5e9] group-hover:text-orange-400" />
