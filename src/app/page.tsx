@@ -17,38 +17,18 @@ export default function Page() {
     <div className="relative min-h-[100dvh] w-full selection:bg-primary selection:text-primary-foreground">
       <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-12 sm:py-24">
         <section id="hero">
-          <div className="mx-auto w-full space-y-8">
-            <div className="flex items-center gap-6  flex-row">
-              <BlurFade delay={BLUR_FADE_DELAY}>
-                <Avatar className="size-28 border">
-                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                  <AvatarFallback>{DATA.initials}</AvatarFallback>
-                </Avatar>
-              </BlurFade>
-
-              <div className="hidden lg:block">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Hi, I&apos;m {DATA.name.split(" ")[0]}
-                </h1>
-              </div>
-            </div>
-            <div className="block lg:hidden">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Hi, I&apos;m {DATA.name.split(" ")[0]}
-                </h1>
-              </div>
-            {/* <div className="gap-2 flex justify-between">
-              <div className="flex-col flex flex-1 space-y-1.5">
-                <BlurFade delay={BLUR_FADE_DELAY}>
-                 
-                </BlurFade>
-                <BlurFadeText
-                  className="max-w-[600px] md:text-xl"
-                  delay={BLUR_FADE_DELAY}
-                  text={DATA.description}
-                />
-              </div>
-            </div> */}
+          <div className="mx-auto w-full space-y-6 flex flex-col items-center text-center">
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <Avatar className="size-32 md:size-40 border-2">
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarFallback>{DATA.initials}</AvatarFallback>
+              </Avatar>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 2}>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                Hi, I&apos;m {DATA.name.split(" ")[0]}
+              </h1>
+            </BlurFade>
           </div>
         </section>
         <section id="about">

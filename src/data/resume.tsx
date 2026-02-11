@@ -204,6 +204,16 @@ export const DATA = {
         "Jest",
         "Drizzle ORM",
       ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/anuj846k/auction-bidding",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+
+      image: "",
+      video: "",
     },
     {
       title: "CollisionCloud 🚗",
