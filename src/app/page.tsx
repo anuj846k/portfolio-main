@@ -46,14 +46,14 @@ const SKILL_ICON_MAP: Record<string, React.ReactNode> = {
 export default function Page() {
   return (
     <div className="relative min-h-[100dvh] w-full selection:bg-primary selection:text-primary-foreground">
-      <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-12 sm:py-24 lg:py-4">
+      <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-8 sm:py-12 lg:py-8">
         <section id="hero">
           <div className="mx-auto w-full space-y-6 flex flex-col items-center text-center">
             <BlurFade delay={BLUR_FADE_DELAY}>
               <ThemeAvatar
                 name={DATA.name}
                 initials={DATA.initials}
-                className="size-32 md:size-40 border-2 border-gray-300"
+                className="size-32 md:size-40 border-2 border-border"
               />
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
@@ -126,7 +126,7 @@ export default function Page() {
             <BlurFade delay={BLUR_FADE_DELAY * 9}>
               <div>
                 <p className="text-xs font-medium uppercase tracking-wide text-primary">
-                  Techonologies & Tools
+                  Technologies & Tools
                 </p>
               </div>
             </BlurFade>
@@ -267,7 +267,7 @@ export default function Page() {
                     href={DATA.contact.social.X.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline"
+                    className="text-primary hover:underline"
                   >
                     with a direct question on twitter
                   </Link>{' '}

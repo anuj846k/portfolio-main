@@ -48,7 +48,7 @@ export const ResumeCard = ({
     >
       <Card className="flex p-2">
         <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
+          <Avatar className="border size-12 m-auto bg-muted dark:bg-muted/50">
             <AvatarImage
               src={logoUrl}
               alt={altText}
@@ -94,17 +94,16 @@ export const ResumeCard = ({
           </CardHeader>
           {description && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0, maxHeight: 0 }}
               animate={{
                 opacity: isExpanded ? 1 : 0,
-
-                height: isExpanded ? "auto" : 0,
+                maxHeight: isExpanded ? 200 : 0,
               }}
               transition={{
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-2 overflow-hidden text-xs sm:text-sm"
             >
               {description}
             </motion.div>
