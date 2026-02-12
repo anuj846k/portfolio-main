@@ -18,7 +18,7 @@ import ReactNative from "@/components/technologies/ReactNative";
 import ShadcnIcon from "@/components/technologies/Shadcn";
 import TailwindCssIcon from "@/components/technologies/TailwindCss";
 import TypeScriptIcon from "@/components/technologies/TypeScript";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ThemeAvatar } from "@/components/theme-avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -50,10 +50,11 @@ export default function Page() {
         <section id="hero">
           <div className="mx-auto w-full space-y-6 flex flex-col items-center text-center">
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-32 md:size-40 border-2 border-gray-300">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
+              <ThemeAvatar
+                name={DATA.name}
+                initials={DATA.initials}
+                className="size-32 md:size-40 border-2 border-gray-300"
+              />
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
