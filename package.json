@@ -29,6 +29,7 @@
     "react-dom": "^18.3.1",
     "react-markdown": "^9.1.0",
     "react-syntax-highlighter": "^16.1.0",
+    "react-theme-switch-animation": "^1.0.0",
     "rehype-pretty-code": "^0.13.2",
     "rehype-stringify": "^10.0.1",
     "remark-gfm": "^4.0.1",
