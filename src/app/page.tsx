@@ -1,45 +1,45 @@
-import Github from "@/components/Github";
-import { HackathonCard } from "@/components/hackathon-card";
-import BlurFade from "@/components/magicui/blur-fade";
-import { ProjectCard } from "@/components/project-card";
-import { ResumeCard } from "@/components/resume-card";
-import Docker from "@/components/technologies/Docker";
-import Expo from "@/components/technologies/Expo";
-import FastApi from "@/components/technologies/FastApi";
-import Kubernetes from "@/components/technologies/Kubernetes";
-import MongoDBIcon from "@/components/technologies/MongoDB";
-import NextJs from "@/components/technologies/NextJs";
-import NodeJs from "@/components/technologies/NodeJs";
-import PostgreSQLIcon from "@/components/technologies/PostgreSQL";
-import PrismaIcon from "@/components/technologies/Prisma";
-import Python from "@/components/technologies/Python";
-import ReactIcon from "@/components/technologies/ReactIcon";
-import ReactNative from "@/components/technologies/ReactNative";
-import ShadcnIcon from "@/components/technologies/Shadcn";
-import TailwindCssIcon from "@/components/technologies/TailwindCss";
-import TypeScriptIcon from "@/components/technologies/TypeScript";
-import { ThemeAvatar } from "@/components/theme-avatar";
-import { DATA } from "@/data/resume";
-import Link from "next/link";
-import Markdown from "react-markdown";
+import Github from '@/components/Github';
+import { HackathonCard } from '@/components/hackathon-card';
+import BlurFade from '@/components/magicui/blur-fade';
+import { ProjectCard } from '@/components/project-card';
+import { ResumeCard } from '@/components/resume-card';
+import Docker from '@/components/technologies/Docker';
+import Expo from '@/components/technologies/Expo';
+import FastApi from '@/components/technologies/FastApi';
+import Kubernetes from '@/components/technologies/Kubernetes';
+import MongoDBIcon from '@/components/technologies/MongoDB';
+import NextJs from '@/components/technologies/NextJs';
+import NodeJs from '@/components/technologies/NodeJs';
+import PostgreSQLIcon from '@/components/technologies/PostgreSQL';
+import PrismaIcon from '@/components/technologies/Prisma';
+import Python from '@/components/technologies/Python';
+import ReactIcon from '@/components/technologies/ReactIcon';
+import ReactNative from '@/components/technologies/ReactNative';
+import ShadcnIcon from '@/components/technologies/Shadcn';
+import TailwindCssIcon from '@/components/technologies/TailwindCss';
+import TypeScriptIcon from '@/components/technologies/TypeScript';
+import { ThemeAvatar } from '@/components/theme-avatar';
+import { DATA } from '@/data/resume';
+import Link from 'next/link';
+import Markdown from 'react-markdown';
 
 const BLUR_FADE_DELAY = 0.04;
 
 const SKILL_ICON_MAP: Record<string, React.ReactNode> = {
   React: <ReactIcon />,
-  "Next.js": <NextJs />,
+  'Next.js': <NextJs />,
   TypeScript: <TypeScriptIcon />,
-  "Node.js": <NodeJs />,
+  'Node.js': <NodeJs />,
   PostgreSQL: <PostgreSQLIcon />,
   MongoDB: <MongoDBIcon />,
   Prisma: <PrismaIcon />,
-  "Shadcn UI": <ShadcnIcon />,
-  "Tailwind CSS": <TailwindCssIcon />,
+  'Shadcn UI': <ShadcnIcon />,
+  'Tailwind CSS': <TailwindCssIcon />,
   FastAPI: <FastApi />,
   Python: <Python />,
   Docker: <Docker />,
   Expo: <Expo />,
-  "React Native": <ReactNative />,
+  'React Native': <ReactNative />,
   Kubernetes: <Kubernetes />,
 };
 
@@ -58,7 +58,7 @@ export default function Page() {
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Hi, I&apos;m {DATA.name.split(" ")[0]}
+                Hi, I&apos;m {DATA.name.split(' ')[0]}
               </h1>
             </BlurFade>
           </div>
@@ -91,7 +91,7 @@ export default function Page() {
                   subtitle={work.title}
                   href={work.href}
                   badges={work.badges}
-                  period={`${work.start} - ${work.end ?? "Present"}`}
+                  period={`${work.start} - ${work.end ?? 'Present'}`}
                   description={work.description}
                 />
               </BlurFade>
@@ -136,7 +136,7 @@ export default function Page() {
                 const fallbackInitials = skill
                   .split(/[\s.]+/)
                   .map((part) => part[0])
-                  .join("")
+                  .join('')
                   .slice(0, 3);
 
                 return (
@@ -220,7 +220,7 @@ export default function Page() {
                     I like building things
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    During my time in university, I attended{" "}
+                    During my time in university, I attended{' '}
                     {DATA.hackathons.length}+ hackathons. People from around the
                     country would come together and build incredible things in
                     2-3 days. It was eye-opening to see the endless
@@ -262,7 +262,7 @@ export default function Page() {
                   Get in Touch
                 </h2>
                 <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Want to chat? Just shoot me a dm{" "}
+                  Want to chat? Just shoot me a dm{' '}
                   <Link
                     href={DATA.contact.social.X.url}
                     target="_blank"
@@ -270,7 +270,7 @@ export default function Page() {
                     className="text-blue-500 hover:underline"
                   >
                     with a direct question on twitter
-                  </Link>{" "}
+                  </Link>{' '}
                   and I&apos;ll respond whenever I can. I will ignore all
                   soliciting.
                 </p>
