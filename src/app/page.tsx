@@ -1,4 +1,5 @@
 import Github from '@/components/Github';
+import { AnimatedText } from '@/components/animated-text';
 import { HackathonCard } from '@/components/hackathon-card';
 import BlurFade from '@/components/magicui/blur-fade';
 import { ProjectCard } from '@/components/project-card';
@@ -48,18 +49,35 @@ export default function Page() {
     <div className="relative min-h-[100dvh] w-full selection:bg-primary selection:text-primary-foreground">
       <main className="relative flex flex-col min-h-screen space-y-10 rounded-xl my-8 bg-background max-w-6xl mx-auto px-6 py-8 sm:py-12 lg:py-8">
         <section id="hero">
-          <div className="mx-auto w-full space-y-6 flex flex-col items-center text-center">
+          <div className="mx-auto w-full space-y-8 flex flex-col items-center text-center">
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <ThemeAvatar
-                name={DATA.name}
-                initials={DATA.initials}
-                className="size-32 md:size-40 border-2 border-border"
-              />
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 blur-3xl opacity-50 rounded-full animate-pulse" />
+                <ThemeAvatar
+                  name={DATA.name}
+                  initials={DATA.initials}
+                  className="size-32 md:size-40 border-4 border-border shadow-xl relative"
+                />
+              </div>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 2}>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Hi, I&apos;m {DATA.name.split(' ')[0]}
-              </h1>
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  Hi, I&apos;m {DATA.name.split(' ')[0]}
+                </h1>
+                <p className="text-muted-foreground flex items-center justify-center gap-2 text-sm">
+                  <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium">
+                    Noida, India
+                  </span>
+                  <span className="text-muted-foreground/60">•</span>
+                  <span>Full Stack Developer</span>
+                </p>
+              </div>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 3}>
+              <div className="h-8 flex items-center justify-center">
+                <AnimatedText />
+              </div>
             </BlurFade>
           </div>
         </section>

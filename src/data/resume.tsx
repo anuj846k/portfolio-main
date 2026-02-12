@@ -8,9 +8,9 @@ export const DATA = {
   location: 'Noida, Uttar Pradesh, India',
   locationLink: 'https://www.google.com/maps/place/Noida',
   description:
-    'Self-taught Full Stack Developer building scalable web applications.',
+    'Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.',
   summary:
-    "Hey! I'm Anuj Kumar, a self-taught full stack developer from Noida, India. I'm currently pursuing my Bachelor's in **Computer Science and Technology**. I love building software that solves real-world problems, which is why I actively [participate in hackathons](/#hackathons) where most of my projects are developed. My everyday tech stack includes **Next.js, TypeScript, Node Js, Prisma ORM, Docker** and more. I'm always open for freelance projects and collaborations!",
+    "Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.\n\nCurrently freelancing — shipped a **live adventure park platform** (100% uptime, 400ms latency), a **role-based trek management system**, an **AI-powered accident reconstruction tool**, a **real-time auction system**, and an **AI-driven real estate platform** at Propview.ai.\n\nSpecialized in **Next.js, TypeScript, Node.js, and Python**. Multiple [hackathon winner](/#hackathons) and always open for collaborations.",
   avatarUrl: '/pp.png',
   skills: [
     'React',
