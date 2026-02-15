@@ -5,11 +5,18 @@ import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { DM_Sans as FontSans } from "next/font/google";
+import { Instrument_Serif as FontSerif } from "next/font/google";
 import "./globals.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const fontSerif = FontSerif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -64,6 +71,7 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-3xl mx-auto py-12 px-2",
           fontSans.variable,
+          fontSerif.variable,
         )}
       >
         <ThemeProvider

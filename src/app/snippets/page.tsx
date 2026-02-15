@@ -62,7 +62,7 @@ const Blog = () => {
     <>
       <main className="relative min-h-screen py-12 md:py-24 px-1 md:px-0">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-center -mt-12 text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="text-center -mt-12 text-5xl font-semibold leading-none sm:text-6xl md:text-7xl lg:text-8xl">
             Code{" "}
             <LineShadowText
               className="italic dark:text-purple-200 text-orange-500"
