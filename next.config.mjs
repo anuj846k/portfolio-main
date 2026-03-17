@@ -4,9 +4,10 @@ const nextConfig = {
 
   images: {
     domains: [
-      "github.com",
-      "raw.githubusercontent.com",
-      "github-contributions-api.jogruber.de",
+      'github.com',
+      'raw.githubusercontent.com',
+      'github-contributions-api.jogruber.de',
+      'storage.googleapis.com',
     ],
   },
 };

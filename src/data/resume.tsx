@@ -10,7 +10,7 @@ export const DATA = {
   description:
     'Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.',
   summary:
-    "Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.\n\nCurrently freelancing — shipped a **live adventure park platform** (100% uptime, 400ms latency), a **role-based trek management system**, an **AI-powered accident reconstruction tool**, a **real-time auction system**, and an **AI-driven real estate platform** at Propview.ai.\n\nSpecialized in **Next.js, TypeScript, Node.js, and Python**. Multiple [hackathon winner](/#hackathons) and always open for collaborations.",
+    'Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.\n\nCurrently freelancing — shipped a **live adventure park platform** (100% uptime, 400ms latency), a **role-based trek management system**, an **AI-powered accident reconstruction tool**, a **real-time auction system**, and an **AI-driven real estate platform** at Propview.ai.\n\nSpecialized in **Next.js, TypeScript, Node.js, and Python**. Multiple [hackathon winner](/#hackathons) and always open for collaborations.',
   avatarUrl: '/pp.png',
   skills: [
     'React',
@@ -191,6 +191,40 @@ export const DATA = {
       image: '/ttt.png',
       video: '',
     },
+    {
+      title: 'PropStack',
+      href: 'https://github.com/anuj846k/Propstack-ai-layer',
+      dates: '2026',
+      active: true,
+      description:
+        'AI property management platform for small landlords with voice/WhatsApp rent collection and maintenance triage agents, built on Supabase and Google Cloud Run with Gemini + ADK',
+      technologies: [
+        'Next.js',
+        'FastAPI',
+        'Gemini Live API',
+        'Gemini AI',
+        'Google ADK',
+        'TypeScript',
+        'Docker'
+      ],
+      links: [
+        {
+          type: 'Source',
+
+          href: 'https://github.com/anuj846k/Propstack-ai-layer',
+          icon: <Icons.github className="size-3" />,
+        },
+
+        {
+          type: 'Demo',
+          href: 'https://youtu.be/7aZmRhIZRCs?si=nmoTyl2ltodWNQPh',
+          icon: <Icons.youtube className="size-3" />,
+        },
+      ],
+      image:
+        'https://storage.googleapis.com/propstack-bucket/assets/landing/Hero.png',
+      video: '',
+    },
 
     {
       title: 'Auction Bidding System',
@@ -219,39 +253,7 @@ export const DATA = {
       image: '/auctions.png',
       video: '',
     },
-    {
-      title: 'CollisionCloud 🚗',
-      href: 'https://github.com/anuj846k/Collision-Cloud',
-      dates: '2025',
-      active: true,
-      description:
-        'AI-powered accident reconstruction from CCTV footage. Detects collisions, tracks vehicles, generates PDF reports & audio summaries in English/Hindi using Kestra, Gemini AI, and ElevenLabs.',
-      technologies: [
-        'Next.js',
-        'FastAPI',
-        'Kestra',
-        'Gemini AI',
-        'Python',
-        'OpenCV',
-      ],
-      links: [
-        {
-          type: 'Source',
 
-          href: 'https://github.com/anuj846k/Collision-Cloud',
-          icon: <Icons.github className="size-3" />,
-        },
-
-        {
-          type: 'Demo',
-          href: 'https://www.youtube.com/watch?v=TlImgfYaTP4',
-          icon: <Icons.youtube className="size-3" />,
-        },
-      ],
-      image:
-        'https://raw.githubusercontent.com/anuj846k/Collision-Cloud/main/accident-frontend/public/step1.png',
-      video: '',
-    },
     {
       title: 'Not OUT Fantasy App',
       href: 'https://github.com/anuj846k/NotOut99-FantasyAPP.git',
