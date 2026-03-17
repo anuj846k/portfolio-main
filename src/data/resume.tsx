@@ -205,7 +205,7 @@ export const DATA = {
         'Gemini AI',
         'Google ADK',
         'TypeScript',
-        'Docker'
+        'Docker',
       ],
       links: [
         {
