@@ -1,5 +1,6 @@
 import Github from '@/components/Github';
 import { AnimatedText } from '@/components/animated-text';
+import { CredlyBadge } from '@/components/credly-badge';
 import { HackathonCard } from '@/components/hackathon-card';
 import BlurFade from '@/components/magicui/blur-fade';
 import { ProjectCard } from '@/components/project-card';
@@ -137,6 +138,72 @@ export default function Page() {
                 />
               </BlurFade>
             ))}
+          </div>
+        </section>
+        <section id="certifications">
+          <div className="flex min-h-0 flex-col gap-y-3">
+            <BlurFade delay={BLUR_FADE_DELAY * 8.5}>
+              <h2 className="font-serif text-xl font-bold">Certifications</h2>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 8.7}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="flex flex-col items-center justify-between gap-4 rounded-xl border bg-card/40 p-4 shadow-sm transition hover:border-primary/60 hover:bg-card/80 min-h-[350px]">
+                  <div className="flex flex-1 items-center justify-center w-full">
+                    <CredlyBadge
+                      badgeId="efeff9ab-712b-4cb1-aae6-2682f63e1d30"
+                      width="150"
+                      height="270"
+                      className="flex items-center justify-center"
+                    />
+                  </div>
+                  <p className="text-sm font-medium text-muted-foreground text-center">
+                    AWS Academy Cloud Architecting
+                  </p>
+                </div>
+                <div className="flex flex-col items-center justify-between gap-4 rounded-xl border bg-card/40 p-4 shadow-sm transition hover:border-primary/60 hover:bg-card/80 min-h-[350px]">
+                  <div className="flex flex-1 items-center justify-center w-full">
+                    <Link href="https://www.credential.net/126917254" target="_blank" className="flex items-center justify-center w-full h-full cursor-pointer">
+                      <img
+                        src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/126917254"
+                        alt="Codedex Hackathon Winner"
+                        className="max-h-[270px] w-auto object-contain transition-transform hover:scale-105"
+                      />
+                    </Link>
+                  </div>
+                  <p className="text-sm font-medium text-muted-foreground text-center">
+                    Codedex Hackathon Winner
+                  </p>
+                </div>
+                <div className="flex flex-col items-center justify-between gap-4 rounded-xl border bg-card/40 p-4 shadow-sm transition hover:border-primary/60 hover:bg-card/80 min-h-[350px]">
+                  <div className="flex flex-1 items-center justify-center w-full">
+                    <Link href="https://www.credential.net/110689200" target="_blank" className="flex items-center justify-center w-full h-full cursor-pointer">
+                      <img
+                        src="https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/110689200"
+                        alt="AI Certification"
+                        className="max-h-[270px] w-auto object-contain rounded-md transition-transform hover:scale-105"
+                      />
+                    </Link>
+                  </div>
+                  <p className="text-sm font-medium text-muted-foreground text-center">
+                    Codedex React Course 
+                  </p>
+                </div>
+                <div className="flex flex-col items-center justify-between gap-4 rounded-xl border bg-card/40 p-4 shadow-sm transition hover:border-primary/60 hover:bg-card/80 min-h-[350px]">
+                  <div className="flex flex-1 items-center justify-center w-full">
+                    <Link href="https://www.credential.net/107093355" target="_blank" className="flex items-center justify-center w-full h-full cursor-pointer">
+                      <img
+                        src="https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/107093355"
+                        alt="Certification"
+                        className="max-h-[270px] w-auto object-contain rounded-md transition-transform hover:scale-105"
+                      />
+                    </Link>
+                  </div>
+                  <p className="text-sm font-medium text-muted-foreground text-center">
+                    Certification
+                  </p>
+                </div>
+              </div>
+            </BlurFade>
           </div>
         </section>
         <section id="skills">
