@@ -164,9 +164,9 @@ export const DATA = {
       video: '',
     },
     {
-      title: 'Kakiyo (Reachyy)',
-      href: 'https://kakiyo-outreach.vercel.app',
-      dates: '2025',
+      title: 'Reachy',
+      href: 'https://reachy-outreach.vercel.app',
+      dates: '2026',
       active: true,
       description:
         'AI-powered outreach platform that extracts prospect profiles from URLs through background workflows, and generates personalized outreach messages with conversation memory for follow-ups. Built with Inngest for durable background job orchestration and Gemini for AI consolidation.',
@@ -185,12 +185,12 @@ export const DATA = {
       links: [
         {
           type: 'Website',
-          href: 'https://kakiyo-outreach.vercel.app',
+          href: 'https://reachy-outreach.vercel.app',
           icon: <Icons.globe className='size-3' />,
         },
         {
           type: 'Source',
-          href: 'https://github.com/anuj846k/kakiyo-outreach',
+          href: 'https://github.com/anuj846k/reachy-outreach',
           icon: <Icons.github className='size-3' />,
         },
       ],
