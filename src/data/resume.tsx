@@ -120,24 +120,6 @@ export const DATA = {
   ],
   projects: [
     {
-      title: 'CodesBlue',
-      href: 'https://www.codesblue.com/',
-      dates: '2025',
-      active: true,
-      description:
-        'Modern agency landing page with sleek design, smooth animations, and responsive layout for a professional web presence.',
-      technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-      links: [
-        {
-          type: 'Website',
-          href: 'https://www.codesblue.com/',
-          icon: <Icons.globe className='size-3' />,
-        },
-      ],
-      image: '/landing.png',
-      video: '',
-    },
-    {
       title: 'EOD Parks',
       href: 'https://www.eodparks.com/',
       dates: '2025',
@@ -195,6 +177,24 @@ export const DATA = {
         },
       ],
       image: '/outreach.png',
+      video: '',
+    },
+    {
+      title: 'CodesBlue',
+      href: 'https://www.codesblue.com/',
+      dates: '2025',
+      active: true,
+      description:
+        'Modern agency landing page with sleek design, smooth animations, and responsive layout for a professional web presence.',
+      technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
+      links: [
+        {
+          type: 'Website',
+          href: 'https://www.codesblue.com/',
+          icon: <Icons.globe className='size-3' />,
+        },
+      ],
+      image: '/landing.png',
       video: '',
     },
     {
