@@ -181,7 +181,7 @@ export const DATA = {
     },
     {
       title: 'CodesBlue',
-      href: 'https://www.codesblue.com/',
+      href: 'https://codesblue-git-main-kshitijakarshs-projects.vercel.app/',
       dates: '2025',
       active: true,
       description:
@@ -190,7 +190,7 @@ export const DATA = {
       links: [
         {
           type: 'Website',
-          href: 'https://www.codesblue.com/',
+          href: 'https://codesblue-git-main-kshitijakarshs-projects.vercel.app/',
           icon: <Icons.globe className='size-3' />,
         },
       ],
