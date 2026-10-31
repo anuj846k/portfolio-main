@@ -4,13 +4,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "motion/react";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 interface ResumeCardProps {
   logoUrl: string;
+  logoBackground?: string;
   altText: string;
   title: string;
   subtitle?: string;
@@ -21,6 +22,7 @@ interface ResumeCardProps {
 }
 export const ResumeCard = ({
   logoUrl,
+  logoBackground,
   altText,
   title,
   subtitle,
@@ -30,86 +32,105 @@ export const ResumeCard = ({
   description,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const reduceMotion = useReducedMotion();
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (description) {
-      e.preventDefault();
-      setIsExpanded(!isExpanded);
-    }
-  };
-
-  return (
-    <Link
-      target="_blank"
-      rel="noopener noreferrer"
-      href={href || "#"}
-      className="block cursor-pointer"
-      onClick={handleClick}
-    >
-      <Card className="flex p-2">
-        <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted dark:bg-muted/50">
-            <AvatarImage
-              src={logoUrl}
-              alt={altText}
-              className="object-contain"
-            />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
-          </Avatar>
-        </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
-          <CardHeader className="space-y-1">
-            <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-base">
-              <h3 className="inline-flex items-center font-semibold leading-none text-xs sm:text-sm">
-                <span>{title}</span>
-                {badges && (
-                  <span className="ml-1 inline-flex gap-x-1">
-                    {badges.map((badge, index) => (
-                      <Badge
-                        variant="secondary"
-                        className="align-middle text-xs"
-                        key={index}
-                      >
-                        {badge}
-                      </Badge>
-                    ))}
-                  </span>
+  const card = (
+    <Card className="flex p-2">
+      <div className="flex-none">
+        <Avatar
+          className="border size-12 m-auto bg-muted dark:bg-muted/50"
+          style={logoBackground ? { backgroundColor: logoBackground } : undefined}
+        >
+          <AvatarImage
+            src={logoUrl}
+            alt={altText}
+            className="object-contain"
+          />
+          <AvatarFallback>{altText[0]}</AvatarFallback>
+        </Avatar>
+      </div>
+      <div className="grow ml-4 items-center flex-col group">
+        <CardHeader className="space-y-1">
+          <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-base">
+            <h3 className="inline-flex items-center font-semibold leading-none text-xs sm:text-sm">
+              <span>{title}</span>
+              {badges && (
+                <span className="ml-1 inline-flex gap-x-1">
+                  {badges.map((badge) => (
+                    <Badge
+                      variant="secondary"
+                      className="align-middle text-xs"
+                      key={badge}
+                    >
+                      {badge}
+                    </Badge>
+                  ))}
+                </span>
+              )}
+              <ChevronRightIcon
+                aria-hidden="true"
+                className={cn(
+                  "size-4 translate-x-0 transform opacity-0 transition-[transform,opacity] duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                  isExpanded ? "rotate-90" : "rotate-0",
                 )}
-                <ChevronRightIcon
-                  className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0",
-                  )}
-                />
-              </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground">
-                {period}
-              </div>
+              />
+            </h3>
+            <div className="text-xs sm:text-sm tabular-nums text-muted-foreground">
+              {period}
             </div>
-            {subtitle && (
-              <div className="font-sans text-xs text-muted-foreground">
-                {subtitle}
-              </div>
-            )}
-          </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, maxHeight: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
-                maxHeight: isExpanded ? 200 : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-2 overflow-hidden text-xs sm:text-sm"
-            >
-              {description}
-            </motion.div>
+          </div>
+          {subtitle && (
+            <div className="font-sans text-xs text-muted-foreground">
+              {subtitle}
+            </div>
           )}
-        </div>
-      </Card>
-    </Link>
+        </CardHeader>
+        {description && (
+          <motion.div
+            initial={{ opacity: 0, maxHeight: 0 }}
+            animate={{
+              opacity: isExpanded ? 1 : 0,
+              maxHeight: isExpanded ? 200 : 0,
+            }}
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+            }
+            className="mt-2 overflow-hidden text-xs sm:text-sm"
+          >
+            {description}
+          </motion.div>
+        )}
+      </div>
+    </Card>
   );
+
+  if (description) {
+    return (
+      <button
+        type="button"
+        aria-expanded={isExpanded}
+        onClick={() => setIsExpanded((expanded) => !expanded)}
+        className="block w-full cursor-pointer rounded-lg text-left focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        {card}
+      </button>
+    );
+  }
+
+  if (href) {
+    return (
+      <Link
+        target="_blank"
+        rel="noopener noreferrer"
+        href={href}
+        className="block cursor-pointer rounded-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
 };

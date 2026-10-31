@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans as FontSans } from "next/font/google";
 import { Instrument_Serif as FontSerif } from "next/font/google";
 import "./globals.css";
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   description: DATA.description,
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: "/images/logo.png",
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
   },
   openGraph: {
     title: `${DATA.name}`,
@@ -38,14 +38,6 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/pp.png",
-        width: 512,
-        height: 512,
-        alt: DATA.name,
-      },
-    ],
   },
   robots: {
     index: true,
@@ -61,12 +53,14 @@ export const metadata: Metadata = {
   twitter: {
     title: `${DATA.name}`,
     card: "summary_large_image",
-    images: ["/pp.png"],
   },
-  verification: {
-    google: "",
-    yandex: "",
-  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#08090a" },
+  ],
 };
 
 export default function RootLayout({
@@ -90,7 +84,15 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider delayDuration={0}>
-            {children}
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
+            >
+              Skip to main content
+            </a>
+            <div id="main-content" tabIndex={-1} className="outline-hidden">
+              {children}
+            </div>
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>

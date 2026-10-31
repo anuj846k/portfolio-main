@@ -7,7 +7,7 @@
 
 export const githubConfig = {
     username: 'anuj846k',
-    apiUrl: 'https://github-contributions-api.deno.dev',
+    apiUrl: 'https://github-contributions-api.jogruber.de/v4',
   
     // Display settings
     title: 'GitHub Activity',
@@ -68,7 +68,7 @@ export const githubConfig = {
   
     // Loading state configuration
     loadingState: {
-      title: 'Loading contributions...',
+      title: 'Loading contributions…',
       description: 'Fetching your GitHub activity data',
     },
   };

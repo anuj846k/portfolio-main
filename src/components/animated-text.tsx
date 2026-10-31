@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { useState, useEffect } from 'react';
 
 const TAGLINES = [
@@ -13,13 +13,15 @@ const TAGLINES = [
 
 export function AnimatedText() {
   const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reduceMotion) return;
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % TAGLINES.length);
     }, 2500);
     return () => clearInterval(timer);
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <AnimatePresence mode="wait">
@@ -29,6 +31,7 @@ export function AnimatedText() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.3 }}
+        aria-live="off"
         className="text-lg text-muted-foreground"
       >
         {TAGLINES[index]}
