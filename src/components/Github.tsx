@@ -14,6 +14,8 @@ const ActivityCalendar = dynamic(
   { ssr: false },
 );
 
+const numberFormat = new Intl.NumberFormat("en-US");
+
 type ContributionItem = {
   date: string;
   count: number;
@@ -21,26 +23,9 @@ type ContributionItem = {
 };
 
 type GitHubContributionResponse = {
-  date: string;
-  contributionCount: number;
-  contributionLevel:
-    | "NONE"
-    | "FIRST_QUARTILE"
-    | "SECOND_QUARTILE"
-    | "THIRD_QUARTILE"
-    | "FOURTH_QUARTILE";
+  total?: { lastYear?: number };
+  contributions?: ContributionItem[];
 };
-
-// Helper function to filter contributions to past year
-function filterLastYear(contributions: ContributionItem[]): ContributionItem[] {
-  const oneYearAgo = new Date();
-  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-
-  return contributions.filter((item) => {
-    const itemDate = new Date(item.date);
-    return itemDate >= oneYearAgo;
-  });
-}
 
 export default function Github() {
   const [contributions, setContributions] = useState<ContributionItem[]>([]);
@@ -54,55 +39,14 @@ export default function Github() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `${githubConfig.apiUrl}/${githubConfig.username}.json`,
+          `${githubConfig.apiUrl}/${githubConfig.username}?y=last`,
         );
-        const data: { contributions?: unknown[] } = await response.json();
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data: GitHubContributionResponse = await response.json();
 
-        if (data?.contributions && Array.isArray(data.contributions)) {
-          // Flatten the nested array structure
-          const flattenedContributions = data.contributions.flat();
-
-          // Convert contribution levels to numbers
-          const contributionLevelMap = {
-            NONE: 0,
-            FIRST_QUARTILE: 1,
-            SECOND_QUARTILE: 2,
-            THIRD_QUARTILE: 3,
-            FOURTH_QUARTILE: 4,
-          };
-
-          // Transform to the expected format
-          const validContributions = flattenedContributions
-            .filter(
-              (item: unknown): item is GitHubContributionResponse =>
-                typeof item === "object" &&
-                item !== null &&
-                "date" in item &&
-                "contributionCount" in item &&
-                "contributionLevel" in item,
-            )
-            .map((item: GitHubContributionResponse) => ({
-              date: String(item.date),
-              count: Number(item.contributionCount || 0),
-              level: (contributionLevelMap[
-                item.contributionLevel as keyof typeof contributionLevelMap
-              ] || 0) as ContributionItem["level"],
-            }));
-
-          if (validContributions.length > 0) {
-            // Calculate total contributions
-            const total = validContributions.reduce(
-              (sum, item) => sum + item.count,
-              0,
-            );
-            setTotalContributions(total);
-
-            // Filter to show only the past year
-            const filteredContributions = filterLastYear(validContributions);
-            setContributions(filteredContributions);
-          } else {
-            setHasError(true);
-          }
+        if (data.contributions && data.contributions.length > 0) {
+          setContributions(data.contributions);
+          setTotalContributions(data.total?.lastYear ?? 0);
         } else {
           setHasError(true);
         }
@@ -133,7 +77,7 @@ export default function Github() {
               <p className="text-primary mt-1 text-sm font-medium">
                 Total:{" "}
                 <span className="font-black">
-                  {totalContributions.toLocaleString()}
+                  {numberFormat.format(totalContributions)}
                 </span>{" "}
                 contributions
               </p>
@@ -143,9 +87,16 @@ export default function Github() {
 
         {/* Content */}
         {isLoading ? (
-          <div className="flex items-center justify-center py-16">
+          <div
+            role="status"
+            aria-live="polite"
+            className="flex items-center justify-center py-16"
+          >
             <div className="text-center">
-              <div className="border-primary mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-t-transparent"></div>
+              <div
+                aria-hidden="true"
+                className="border-primary mx-auto mb-4 h-8 w-8 motion-safe:animate-spin rounded-full border-2 border-t-transparent"
+              ></div>
               <p className="text-muted-foreground text-sm">
                 {githubConfig.loadingState.description}
               </p>
@@ -154,7 +105,7 @@ export default function Github() {
         ) : hasError || contributions.length === 0 ? (
           <div className="text-muted-foreground border-border rounded-xl border-2 border-dashed p-8 text-center">
             <div className="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
-              <GitHubLogoIcon className="h-8 w-8" />
+              <GitHubLogoIcon className="h-8 w-8" aria-hidden="true" />
             </div>
             <p className="mb-2 font-medium">{githubConfig.errorState.title}</p>
             <p className="mb-4 text-sm">
@@ -163,16 +114,18 @@ export default function Github() {
             <Button variant="outline" asChild>
               <Link
                 href={`https://github.com/${githubConfig.username}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2"
               >
-                <GitHubLogoIcon className="h-4 w-4" />
+                <GitHubLogoIcon className="h-4 w-4" aria-hidden="true" />
                 {githubConfig.errorState.buttonText}
               </Link>
             </Button>
           </div>
         ) : (
           <div className="relative overflow-hidden">
-            <div className="bg-background/50 relative rounded-lg border border-dashed border-black/20 p-6 backdrop-blur-sm dark:border-white/10">
+            <div className="bg-background/50 relative rounded-lg border border-dashed border-black/20 p-6 backdrop-blur-xs dark:border-white/10">
               <div className="w-full overflow-x-auto">
                 <ActivityCalendar
                   data={contributions}

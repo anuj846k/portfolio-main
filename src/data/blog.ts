@@ -1,6 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+import { cache } from "react";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
@@ -38,33 +39,27 @@ export async function markdownToHTML(markdown: string) {
   return p.toString();
 }
 
-export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
-  let source = fs.readFileSync(filePath, "utf-8");
-  const { content: rawContent, data: metadata } = matter(source);
+const contentDir = path.join(process.cwd(), "content");
+
+export const getPost = cache(async (slug: string) => {
+  const filePath = path.join(contentDir, `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) {
+    return undefined;
+  }
+  const source = fs.readFileSync(filePath, "utf-8");
+  const { content: rawContent, data } = matter(source);
   const content = await markdownToHTML(rawContent);
   return {
     source: content,
-    metadata,
+    metadata: data as Metadata,
     slug,
   };
-}
+});
 
-async function getAllPosts(dir: string) {
-  let mdxFiles = getMDXFiles(dir);
-  return Promise.all(
-    mdxFiles.map(async (file) => {
-      let slug = path.basename(file, path.extname(file));
-      let { metadata, source } = await getPost(slug);
-      return {
-        metadata,
-        slug,
-        source,
-      };
-    }),
-  );
-}
-
-export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
+export function getBlogPostsMetadata() {
+  return getMDXFiles(contentDir).map((file) => {
+    const slug = path.basename(file, path.extname(file));
+    const source = fs.readFileSync(path.join(contentDir, file), "utf-8");
+    return { slug, metadata: matter(source).data as Metadata };
+  });
 }

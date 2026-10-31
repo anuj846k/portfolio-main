@@ -4,32 +4,16 @@ import { CodeIcon, HomeIcon } from 'lucide-react';
 export const DATA = {
   name: 'Anuj Kumar',
   initials: 'AK',
-  url: 'https://x.com/anujxforge',
+  url: 'https://www.anuj846k.dev',
   location: 'Noida, Uttar Pradesh, India',
   locationLink: 'https://www.google.com/maps/place/Noida',
   description:
     'Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.',
   summary:
-    'Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.\n\nCurrently freelancing — shipped a **live adventure park platform** (100% uptime, 400ms latency), a **role-based trek management system**, an **AI-powered accident reconstruction tool**, an **AI-powered outreach platform**, and an **AI-driven real estate platform** at Propview.ai.\n\nSpecialized in **Next.js, TypeScript, Node.js, and Python**. Multiple [hackathon winner](/#hackathons) and always open for collaborations.',
-  avatarUrl: '/pp.png',
-  skills: [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Node.js',
-    'PostgreSQL',
-    'Expo',
-    'React Native',
-    'MongoDB',
-    'Docker',
-    'Prisma',
-    'Drizzle ORM',
-    'FastAPI',
-    'Shadcn UI',
-    'Tailwind CSS',
-    'Python',
-    'Kubernetes',
-  ],
+    'Full-Stack Engineer focused on performance, scalability, and shipping production-grade software.\n\nCurrently freelancing — shipped a **live adventure park platform** (100% uptime, 400ms latency), a **role-based trek management system**, an **AI-powered accident reconstruction tool**, an **AI-powered outreach platform**, and an **AI-driven real estate platform** at Propview.ai.\n\nI pick up whatever stack a problem needs and ship it fast. Multiple [hackathon winner](/#hackathons) and always open to collaborations.',
+  avatarUrl: '/images/avatar/avatar.png',
+  resumeUrl: '/files/anuj-kumar-resume.pdf',
+  bookingUrl: 'https://cal.com/anuj846k/30min',
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
 
@@ -72,12 +56,25 @@ export const DATA = {
 
   work: [
     {
+      company: 'CampusMesh',
+      href: 'https://campusmesh.com',
+      badges: ['Remote'],
+      location: 'Remote',
+      title: 'Software Engineer Intern – Backend',
+      logoUrl: '/images/logos/campusmesh.svg',
+      logoBackground: '#9391FC',
+      start: 'August 2026',
+      end: 'October 2026',
+      description:
+        'Built the backend for the B2B Institution and Employer portals on 15 AWS Lambda microservices. Shipped the Institution Portal (84 APIs) and the Employer Portal (45 APIs), and architected JobMesh, which scrapes jobs from 170+ ATS sources into an S3 data lake.',
+    },
+    {
       company: 'Freelance',
       href: 'https://github.com/anuj846k',
       badges: ['Remote'],
       location: 'Remote',
       title: 'Full Stack Developer',
-      logoUrl: '/codesblue.png',
+      logoUrl: '/images/logos/codesblue.png',
       start: 'March 2025',
       end: 'Present',
       description:
@@ -89,33 +86,41 @@ export const DATA = {
       badges: ['Remote'],
       location: 'Remote',
       title: 'Full Stack Developer',
-      logoUrl: '/propviewLOGO.svg',
+      logoUrl: '/images/logos/propview.svg',
       start: 'July 2025',
       end: 'August 2025',
       description:
         'Built a AI application for real estate. Engineered intelligent AI agents and a robust backend infrastructure using FastAPI and the Agno framework to automate property discovery and insights.',
     },
-    {
-      company: 'Open Source & Hackathons',
-      href: 'https://github.com/anuj846k',
-      badges: [],
-      location: 'Remote',
-      title: 'Developer',
-      logoUrl: '',
-      start: 'March 2023',
-      end: 'Present',
-      description:
-        'Active participant in hackathons with multiple wins. Building open-source projects including HopesAlive (animal rescue platform), Interview Genie (AI-powered interview prep), and more.',
-    },
   ],
-  education: [
+  certifications: [
     {
-      school: 'AKTU University (B.Tech CSE(Data Science))',
-      href: 'https://aktu.ac.in/',
-      degree: "Bachelor's in Computer Science and Technology",
-      logoUrl: 'https://aktu.ac.in/images/logo.png',
-      start: '2023',
-      end: '2027',
+      title: 'AWS Academy Cloud Architecting',
+      issuer: 'Amazon Web Services',
+      href: 'https://www.credly.com/badges/efeff9ab-712b-4cb1-aae6-2682f63e1d30',
+      image:
+        'https://images.credly.com/images/fcafd0c9-42da-4703-a191-0c397203dc1b/linkedin_thumb_blob',
+    },
+    {
+      title: 'Codedex Hackathon Winner',
+      issuer: 'Codédex',
+      href: 'https://www.credential.net/126917254',
+      image:
+        'https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/126917254',
+    },
+    {
+      title: 'Codedex React Course',
+      issuer: 'Codédex',
+      href: 'https://www.credential.net/110689200',
+      image:
+        'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/110689200',
+    },
+    {
+      title: 'The Legend of Python - Python Course',
+      issuer: 'Codédex',
+      href: 'https://www.credential.net/107093355',
+      image:
+        'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/107093355',
     },
   ],
   projects: [
@@ -125,15 +130,25 @@ export const DATA = {
       dates: '2025',
       active: true,
       description:
-        'Adventure park platform in Delhi with live users, 100% uptime, and 400ms latency. Full-stack solution for booking and park management.',
+        'End-to-end platform for EOD Adventure Parks across 4 parks in Delhi, Ghaziabad and Agra. About 400ms API latency, 70K+ monthly visitors and 143K+ pageviews.',
+      highlights: [
+        '**Booking website:** tickets, annual passes and offers with weekday and weekend pricing, Razorpay payments with webhooks, QR tickets and Inngest background jobs.',
+        '**Staff app:** Expo app to scan tickets, wristbands and passes at the gate, with over-the-air updates.',
+        '**EventCRM:** lead tracking for school, corporate and birthday events, with round-robin assignment, call transcription, email campaigns and an AI assistant on MCP.',
+        '**Ops dashboard:** finance and operations reports that merge POS and ticketing sales, with nightly S3 backups.',
+      ],
       technologies: [
         'Next.js',
         'TypeScript',
-        'AWS',
+        'React Native',
+        'Expo',
+        'Node.js',
+        'Express',
         'MongoDB',
-        'Vercel',
-        'Resend',
+        'AWS',
         'Razorpay',
+        'Inngest',
+        'Vercel',
       ],
       links: [
         {
@@ -142,7 +157,35 @@ export const DATA = {
           icon: <Icons.globe className='size-3' />,
         },
       ],
-      image: '/eod.png',
+      image: '/images/projects/eod-parks.png',
+      video: '',
+    },
+    {
+      title: 'Scalo',
+      href: 'https://scalocx.com',
+      dates: '2026',
+      active: true,
+      description:
+        'AI customer feedback platform that pulls reviews from Google Reviews, Instagram, Zendesk and CSV into one place. Feedback is embedded with Gemini and stored in pgvector, so teams can chat with it in plain language. Includes daily Inngest syncs, multi-workspace auth and an MCP server for AI editors.',
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'PostgreSQL',
+        'pgvector',
+        'Drizzle',
+        'Gemini',
+        'Vercel AI SDK',
+        'Inngest',
+        'MCP',
+      ],
+      links: [
+        {
+          type: 'Website',
+          href: 'https://scalocx.com',
+          icon: <Icons.globe className='size-3' />,
+        },
+      ],
+      image: 'https://www.scalocx.com/og.png',
       video: '',
     },
     {
@@ -176,7 +219,7 @@ export const DATA = {
           icon: <Icons.github className='size-3' />,
         },
       ],
-      image: '/outreach.png',
+      image: '/images/projects/reachy.png',
       video: '',
     },
     {
@@ -194,7 +237,7 @@ export const DATA = {
           icon: <Icons.globe className='size-3' />,
         },
       ],
-      image: '/landing.png',
+      image: '/images/projects/codesblue.png',
       video: '',
     },
     {
@@ -221,43 +264,10 @@ export const DATA = {
           icon: <Icons.globe className='size-3' />,
         },
       ],
-      image: '/ttt.png',
+      image: '/images/projects/trek-platform.png',
       video: '',
     },
-    {
-      title: 'PropStack',
-      href: 'https://github.com/anuj846k/Propstack-ai-layer',
-      dates: '2026',
-      active: true,
-      description:
-        'AI property management platform for small landlords with voice/WhatsApp rent collection and maintenance triage agents, built on Supabase and Google Cloud Run with Gemini + ADK',
-      technologies: [
-        'Next.js',
-        'FastAPI',
-        'Gemini Live API',
-        'Gemini AI',
-        'Google ADK',
-        'TypeScript',
-        'Docker',
-      ],
-      links: [
-        {
-          type: 'Source',
-
-          href: 'https://github.com/anuj846k/Propstack-ai-layer',
-          icon: <Icons.github className='size-3' />,
-        },
-
-        {
-          type: 'Demo',
-          href: 'https://youtu.be/7aZmRhIZRCs?si=nmoTyl2ltodWNQPh',
-          icon: <Icons.youtube className='size-3' />,
-        },
-      ],
-      image:
-        'https://storage.googleapis.com/propstack-bucket/assets/landing/Hero.png',
-      video: '',
-    },
+    
 
     {
       title: 'Not OUT Fantasy App',
@@ -280,10 +290,11 @@ export const DATA = {
           icon: <Icons.github className='size-3' />,
         },
       ],
-      image: '/notout.png',
+      image: '/images/projects/notout-fantasy.png',
       video: '',
     },
   ],
+  hackathonsCount: 10,
   hackathons: [
     {
       title: 'Codedex Hackathon',
@@ -313,7 +324,7 @@ export const DATA = {
       location: 'Online',
       description:
         'Developed ML Model Automation pipeline with Kestra for monitoring data drift, retraining, and redeploying models automatically.',
-      image: '/wkm.png',
+      image: '/images/projects/hackfrost-polardev.png',
       win: 'Winner 🏆',
       links: [
         {

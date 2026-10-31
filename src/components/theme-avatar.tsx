@@ -1,10 +1,6 @@
-'use client';
-
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 interface ThemeAvatarProps {
   name: string;
@@ -13,39 +9,24 @@ interface ThemeAvatarProps {
 }
 
 export function ThemeAvatar({ name, initials, className }: ThemeAvatarProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const isLight = mounted && resolvedTheme === 'light';
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <Avatar className={cn('relative overflow-hidden', className)}>
-      {/* Both images are always rendered and stacked. 
-          We crossfade between them using opacity for a seamless blend. */}
+      {/* Both images are always rendered and stacked. The `dark` class from
+          next-themes crossfades between them with opacity, without a hydration flash. */}
       <Image
-        src="/pp.png"
+        src="/images/avatar/avatar.png"
         alt={name}
         fill
         priority
-        className={cn(
-          'object-cover',
-          'transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]',
-          isLight ? 'opacity-0' : 'opacity-100',
-        )}
+        className="object-cover opacity-0 transition-opacity duration-700 ease-in-out dark:opacity-100"
       />
       <Image
-        src="/ppColored.png"
-        alt={name}
+        src="/images/avatar/avatar-color.png"
+        alt=""
+        aria-hidden="true"
         fill
         priority
-        className={cn(
-          'object-cover',
-          'transition-opacity duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]',
-          isLight ? 'opacity-100' : 'opacity-0',
-        )}
+        className="object-cover opacity-100 transition-opacity duration-700 ease-in-out dark:opacity-0"
       />
       <AvatarFallback>{initials}</AvatarFallback>
     </Avatar>
